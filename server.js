@@ -5,12 +5,13 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 require('dotenv').config();
+require('./config/mongoose.config');
 
 const path = require('path');
 //still learning how to use path, to help us with path of files 
 
 const PORT = process.env.PORT || 8000
-const {logger} = require('./middleware/logger')
+const {logger, logEvents} = require('./middleware/logger')
 //This can be useful for keeping track of incoming requests and troubleshooting issues with your server.
 
 app.use(logger)
@@ -22,8 +23,6 @@ app.use(express.json(), express.urlencoded({extended: true}));
 app.use('/', express.static(path.join(__dirname, 'public')));
 //listening on the root route '/', telliing express where to find static files like a css file or image that we would use on the server
 //TO SERVE STATIC FILES/ STATIC PAGES THAT DON'T CHANGE DYNAMICALLY, improve performance by reducing load on server, simply return file without having to run any server side code
-
-
 
 
 

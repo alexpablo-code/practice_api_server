@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const API_SECRET = process.env.API_SECRET
 
-mongoose.connect('mongodb://localhost/practice_api', {
+mongoose.connect(`mongodb+srv://ronyalexis0:${API_SECRET}@cluster0.zmn0nzm.mongodb.net/?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
